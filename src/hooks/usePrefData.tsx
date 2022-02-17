@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 
 import axios from "@/pages/api/api";
 
-// PrefCodeを受け取り、APIからデータを取得し、Prefecture型のdataをを返す
-export const usePrefData = () => {
-  const [prefData, setPrefData] = useState({});
+// 都道府県データを返す
+type Prefecture = {
+  prefCode: number;
+  prefName: string;
+};
+
+export const usePrefecture = () => {
+  const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
 
   async function fetchData() {
     const request = await axios.get("/api/v1/prefectures");
-    setPrefData({ request });
-
+    setPrefectures(request.data.result);
     return request;
   }
 
@@ -17,7 +21,7 @@ export const usePrefData = () => {
     fetchData();
   }, []);
 
-  console.log({ prefData });
+  console.log({ prefectures });
 
-  return prefData;
+  return { prefectures };
 };

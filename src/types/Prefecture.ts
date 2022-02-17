@@ -1,5 +1,13 @@
 export type Prefecture = {
-  name: string;
-  id: number;
-  data: number[];
+  prefCode: number;
+  prefName: string;
+  prefData: number[];
 };
+
+interface PrefectureProps {
+  prefecture: Prefecture;
+}
+
+interface PrefectureListProps {
+  prefectures: Prefecture[];
+}

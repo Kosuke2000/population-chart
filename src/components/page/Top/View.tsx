@@ -1,6 +1,6 @@
 import { VFC } from "react";
 
-import { usePrefData } from "@/hooks/usePrefData";
+import { usePrefecture } from "@/hooks/usePrefData";
 
 import { UserTable } from "@/components/model/User/UserTable";
 
@@ -9,7 +9,7 @@ import { Spacer } from "@/components/ui/Spacer";
 import { mockUserList } from "@/mocks/User";
 
 export const TopPageView: VFC = () => {
-  const prefData = usePrefData();
+  usePrefecture();
   return (
     <main className="flex flex-col justify-center items-center p-4 h-screen">
       <h1>Welcome to Nextwind Prototyping Template!</h1>
