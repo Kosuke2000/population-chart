@@ -12,9 +12,18 @@ interface PrefCheckBoxProps {
 
 export const PrefCheckBox: VFC<PrefCheckBoxProps> = ({ prefectures }) => {
   return (
-    <div>
+    <div className="flex flex-wrap gap-8 py-20 px-40">
       {prefectures.map((prefecture, i) => {
-        return <p key={i}>{prefecture.prefName}</p>;
+        return (
+          <p key={i} className="w-24 text-xl">
+            <input
+              type="checkbox"
+              value={prefecture.prefCode}
+              className="mr-2"
+            />
+            {prefecture.prefName}
+          </p>
+        );
       })}
     </div>
   );
