@@ -1,20 +1,18 @@
 import { VFC } from "react";
 
-import { usePrefecture } from "@/hooks/usePrefData";
+import { usePopulationData } from "@/hooks/usePopulationData";
+import { usePrefecture } from "@/hooks/usePrefectures";
 
-import { UserTable } from "@/components/model/User/UserTable";
-
-import { Spacer } from "@/components/ui/Spacer";
-
-import { mockUserList } from "@/mocks/User";
+import { PrefCheckBox } from "@/components/model/Prefecture/PrefCheckBox";
 
 export const TopPageView: VFC = () => {
-  usePrefecture();
+  usePopulationData(11);
+  const { prefectures } = usePrefecture();
+  console.log({ prefectures });
+
   return (
-    <main className="flex flex-col justify-center items-center p-4 h-screen">
-      <h1>Welcome to Nextwind Prototyping Template!</h1>
-      <Spacer size={32} />
-      <UserTable users={mockUserList} />
+    <main className="">
+      <PrefCheckBox prefectures={prefectures} />
     </main>
   );
 };
