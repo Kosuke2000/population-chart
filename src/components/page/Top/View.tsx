@@ -3,15 +3,15 @@ import { VFC } from "react";
 import { usePopulationData } from "@/hooks/usePopulationData";
 import { usePrefecture } from "@/hooks/usePrefectures";
 
-import { PrefCheckBox } from "@/components/model/Prefecture/PrefCheckBox";
+import { PrefChart } from "@/components/model/Prefecture/PrefChart";
 
 export const TopPageView: VFC = () => {
-  usePopulationData(11);
+  usePopulationData(11, "東京");
   const { prefectures } = usePrefecture();
 
   return (
     <main className="">
-      <PrefCheckBox prefectures={prefectures} />
+      <PrefChart prefectures={prefectures} />
     </main>
   );
 };
