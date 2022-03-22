@@ -15,7 +15,7 @@ export const TopPageView: VFC = () => {
   console.log({ series });
 
   return (
-    <main className="flex flex-col gap-12 items-center">
+    <main className="flex flex-col gap-20 items-center py-20">
       <div className="flex flex-wrap gap-4 w-full max-w-3xl">
         {result &&
           result.map((prefecture, i) => (
