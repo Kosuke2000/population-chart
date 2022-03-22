@@ -1,17 +1,33 @@
 import { VFC } from "react";
 
-import { useChartData } from "@/hooks/useChartData";
-import { usePrefecture } from "@/hooks/usePrefectures";
+import { useResas } from "@/hooks/useResas";
+import { useSeries } from "@/hooks/useSeries";
 
-import { PrefChart } from "@/components/model/Prefecture/PrefChart";
+import { Prefecture } from "@/types/Prefecture";
+
+import { PrefCheckbox } from "@/components/model/Prefecture/PrefCheckbox";
+
+import { Chart } from "@/components/ui/Chart";
 
 export const TopPageView: VFC = () => {
-  useChartData(11, "東京");
-  const { prefectures } = usePrefecture();
+  const [series, addSeries, deleteSeries] = useSeries();
+  const { result, error } = useResas<Prefecture[]>("/api/v1/prefectures");
+  console.log({ series });
 
   return (
-    <main className="">
-      <PrefChart prefectures={prefectures} />
+    <main>
+      <div>
+        {result &&
+          result.map((prefecture, i) => (
+            <PrefCheckbox
+              prefecture={prefecture}
+              on={addSeries}
+              off={deleteSeries}
+              key={i}
+            />
+          ))}
+      </div>
+      <Chart series={series} />
     </main>
   );
 };
