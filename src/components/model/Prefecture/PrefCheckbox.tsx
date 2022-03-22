@@ -34,8 +34,10 @@ export const PrefCheckbox: VFC<PrefCheckboxProps> = ({
   };
 
   return (
-    <div className="flex">
-      <input checked={isChecked} onChange={onChange} type="checkbox" />
+    <div className="flex gap-2 content-center w-40">
+      <div className="">
+        <input checked={isChecked} onChange={onChange} type="checkbox" />
+      </div>
       <p>{prefName}</p>
     </div>
   );

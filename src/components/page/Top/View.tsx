@@ -15,8 +15,8 @@ export const TopPageView: VFC = () => {
   console.log({ series });
 
   return (
-    <main>
-      <div>
+    <main className="flex flex-col gap-12 items-center">
+      <div className="flex flex-wrap gap-4 w-full max-w-3xl">
         {result &&
           result.map((prefecture, i) => (
             <PrefCheckbox

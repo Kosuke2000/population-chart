@@ -59,7 +59,10 @@ export const Chart: VFC<Props> = ({ series }) => {
   };
 
   return (
-    <div style={{ width: `100%`, maxWidth: `800px` }}>
+    <div
+      className="border border-slate-400"
+      style={{ width: `100%`, maxWidth: `800px` }}
+    >
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );

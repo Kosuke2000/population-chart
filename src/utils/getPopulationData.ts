@@ -1,11 +1,6 @@
 import axios from "axios";
 
-export interface PopulationStructure {
-  boundaryYear: number;
-  data: { label: string; data: PopulationData[] }[];
-}
-
-type PopulationData = { year: number; value: number };
+import { PopulationStructure } from "@/types/PopulationStructure";
 
 interface Res<T> {
   result: T;

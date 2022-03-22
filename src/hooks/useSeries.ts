@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { Series } from "@/components/ui/Chart/index";
+import { getPopulationData } from "@/utils/getPopulationData";
 
-import { getPopulationData } from "utils/getPopulationData";
+import { Series } from "@/components/ui/Chart/index";
 
 // prefectureを受け取り、seriesとそれを更新する関数を返す
 export function useSeries(): [
