@@ -18,8 +18,8 @@ export const TopPageView: VFC = () => {
   if (!result) return <div>Data is loading ...</div>;
 
   return (
-    <main className="flex flex-col gap-20 items-center py-20">
-      <div className="flex flex-wrap gap-4 w-full max-w-3xl">
+    <main className="flex flex-col gap-8 items-center py-8 w-full">
+      <div className="grid justify-between justify-items-start w-full max-w-3xl grid-template-col-4">
         {result.map((prefecture, i) => (
           <PrefCheckbox
             prefecture={prefecture}
