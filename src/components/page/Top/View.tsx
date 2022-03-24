@@ -14,18 +14,20 @@ export const TopPageView: VFC = () => {
   const { result, error } = useResas<Prefecture[]>("/api/v1/prefectures");
   console.log({ series });
 
+  if (error) return <div>failed to load</div>;
+  if (!result) return <div>Data is loading ...</div>;
+
   return (
     <main className="flex flex-col gap-20 items-center py-20">
       <div className="flex flex-wrap gap-4 w-full max-w-3xl">
-        {result &&
-          result.map((prefecture, i) => (
-            <PrefCheckbox
-              prefecture={prefecture}
-              on={addSeries}
-              off={deleteSeries}
-              key={i}
-            />
-          ))}
+        {result.map((prefecture, i) => (
+          <PrefCheckbox
+            prefecture={prefecture}
+            on={addSeries}
+            off={deleteSeries}
+            key={i}
+          />
+        ))}
       </div>
       <Chart series={series} />
     </main>
